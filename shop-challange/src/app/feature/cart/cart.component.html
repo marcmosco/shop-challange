@@ -1,0 +1,30 @@
+<h1>CARRELLO :</h1>
+
+<div mat-dialog-content>
+  <div *ngFor="let i of prodList">
+    <div>
+      <h4>{{ i?.title }}</h4>
+      <img src="{{ i.images[0] }}" alt="" />
+      <p>{{ i?.description }}</p>
+      <p>{{ i?.price }}</p>
+    </div>
+  </div>
+</div>
+<div class="bottoni">
+  <button
+    mat-dialog-close
+    mat-stroked-button
+    color="warn"
+    (click)="deleteCart()"
+  >
+    SVUOTA
+  </button>
+  <button
+    mat-dialog-close
+    mat-stroked-button
+    color="primary"
+    (click)="submit(prodList)"
+  >
+    ACQUISTA
+  </button>
+</div>

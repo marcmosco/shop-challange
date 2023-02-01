@@ -1,0 +1,28 @@
+<section>
+  <mat-toolbar color="primary">
+    <button mat-icon-button  (click)="inputSideNav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span>Marco's Shop</span>
+    <span class="example-spacer"></span>
+    <div>
+      <button mat-stroked-button [matMenuTriggerFor]="menu">Ruoli Utente</button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item *ngFor="let item of decodedToken?.groups">
+          <p>{{ item }}</p>
+        </button>
+      </mat-menu>
+    </div>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Carrello"
+      [matBadge]="(carteService.getProducts() | async).length"
+      matBadgeColor="accent"
+      (click)="openCart()"
+      [disabled]="(carteService.getProducts() | async).length===0"
+    >
+      <mat-icon>shopping_cart</mat-icon>
+    </button>
+  </mat-toolbar>
+</section>

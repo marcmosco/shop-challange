@@ -1,0 +1,61 @@
+<div class="main">
+  <div class="form">
+    <p class="title">Login</p>
+
+    <form (ngSubmit)="onLogin()" name="loginForm" [formGroup]="loginForm">
+      <div class="emailInput">
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Email</mat-label>
+          <input
+            formControlName="email"
+            matInput
+            placeholder="Enter email address"
+            required
+          />
+          <mat-error *ngIf="!loginForm.controls['email'].valid">
+            Inserisci Mail
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div>
+        <mat-form-field class="full-width" appearance="outline">
+          <mat-label>Password</mat-label>
+          <input
+            formControlName="password"
+            matInput
+            [type]="hide ? 'password' : 'text'"
+            required
+          />
+          <button
+            type="button"
+            mat-icon-button
+            matSuffix
+            (click)="hide = !hide"
+            [attr.aria-label]="'Hide Password'"
+            [attr.aria-pressed]="hide"
+          >
+            <mat-icon>
+              {{ hide ? "visibility_off" : "visibility" }}
+            </mat-icon>
+          </button>
+          <mat-error *ngIf="!loginForm.controls['password'].valid">
+            Inserisci Password
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="button-section">
+        <button
+          type="submit"
+          [disabled]="!loginForm.valid"
+          mat-stroked-button
+          color="warn"
+        >
+          <!--(click)="emitItem()"-->
+
+          Accedi
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
