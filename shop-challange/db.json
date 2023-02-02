@@ -1199,5 +1199,31 @@
     "category": "lighting",
     "thumbnail": "https://i.dummyjson.com/data/products/100/thumbnail.jpg",
     "images": ["https://i.dummyjson.com/data/products/100/1.jpg", "https://i.dummyjson.com/data/products/100/2.jpg", "https://i.dummyjson.com/data/products/100/3.jpg", "https://i.dummyjson.com/data/products/100/thumbnail.jpg"]
-  }]
+  }],
+  "categories": [{
+    "url": "smartphones",
+    "category": "Smartphones"
+  }, {
+    "url": "laptops",
+    "category": "Laptops"
+  }, {
+    "url": "fragrances",
+    "category": "Fragrances"
+  }, {
+    "url": "skincare",
+    "category": "Skincare"
+  },
+    {
+      "url": "groceries",
+      "category": "Groceries"
+    }, {
+      "url": "home-decoration",
+      "category": "Home Decoration"
+    }, {
+      "url": "furniture",
+      "category": "Furniture"
+    }, {
+      "url": "tops",
+      "category": "Tops"
+    }]
 }

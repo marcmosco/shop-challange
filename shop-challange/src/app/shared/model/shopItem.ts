@@ -6,4 +6,5 @@ export interface ShopItem {
   price: number;
   rating: { rate: number; count: number };
   title: string;
+  thumbnail: string;
 }

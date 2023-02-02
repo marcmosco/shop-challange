@@ -3,14 +3,19 @@
   [inputSideNav]="sideNav"
 ></app-header>
 
-<mat-sidenav-container class="white-container">
-  <mat-sidenav #sideNav (click)="sideNav.toggle()" mode="side">
-
-      <mat-nav-list>
-      <a mat-list-item routerLink="/{{element.url}}" *ngFor="let element of categoryList">{{ element?.category }}</a>
-      </mat-nav-list>
+<mat-sidenav-container class="white-container" [hasBackdrop]="true">
+  <mat-sidenav #sideNav (click)="sideNav.toggle()" mode="over">
+    <mat-nav-list>
+      <a
+        mat-list-item
+        [state]="{ title: element.category }"
+        routerLink="/category/{{ element.url }}"
+        *ngFor="let element of categoryList"
+        >{{ element.category }}</a
+      >
+    </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <router-outlet>  </router-outlet>
+    <router-outlet> </router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

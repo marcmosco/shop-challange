@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import {AuthGuardService} from "./shared/service/auth-gaurd.service";
-import {LoginGuardService} from "./shared/service/login-gaurd.service";
+import { AuthGuardService } from './shared/service/auth-gaurd.service';
+import { LoginGuardService } from './shared/service/login-gaurd.service';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -10,7 +10,8 @@ const routes: Routes = [
     loadChildren: () =>
       import('./feature/home/home.module').then((m) => m.HomeModule),
     canActivate: [AuthGuardService],
-  },  {
+  },
+  {
     path: 'ricerca',
     loadChildren: () =>
       import('./feature/ricerca/ricerca.module').then((m) => m.RicercaModule),
@@ -23,6 +24,14 @@ const routes: Routes = [
         (m) => m.LoginFormModule
       ),
     canActivate: [LoginGuardService],
+  },
+  {
+    path: 'category',
+    loadChildren: () =>
+      import('./feature/category/category.module').then(
+        (m) => m.CategoryModule
+      ),
+    canActivate: [AuthGuardService],
   },
   { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ];

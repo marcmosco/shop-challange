@@ -2,18 +2,10 @@
   [displayProgressSpinner]="isLoadingData"
 ></app-content-loader>
 
-<h1 class="title">Catalogo completo</h1>
+<h1 class="title">{{ title }}</h1>
 
 <div class="container">
   <div class="cards" *ngFor="let item of itemList">
     <app-card [item]="item"> </app-card>
   </div>
 </div>
-
-<mat-paginator
-  [length]="100"
-  [pageSize]="10"
-  aria-label="Select page"
-  (page)="handlePageEvent($event)"
->
-</mat-paginator>
