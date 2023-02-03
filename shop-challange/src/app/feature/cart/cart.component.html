@@ -1,30 +1,36 @@
-<h1>CARRELLO :</h1>
+<h1>Totale carrello: {{ cartService.getSum() | async | currency }}</h1>
 
-<div mat-dialog-content>
+<mat-dialog-content>
   <div *ngFor="let i of prodList">
-    <div>
-      <h4>{{ i?.title }}</h4>
-      <img src="{{ i.images[0] }}" alt="" />
+    <mat-card>
+      <h4>
+        <strong>{{ i?.title }}</strong>
+      </h4>
+      <img src="{{ i.thumbnail }}" alt="" />
       <p>{{ i?.description }}</p>
-      <p>{{ i?.price }}</p>
-    </div>
+      <p>
+        <span><strong>Prezzo: </strong></span>{{ i?.price }}
+      </p>
+    </mat-card>
   </div>
-</div>
-<div class="bottoni">
+</mat-dialog-content>
+
+<mat-dialog-actions>
   <button
     mat-dialog-close
     mat-stroked-button
     color="warn"
+    [mat-dialog-close]="true"
     (click)="deleteCart()"
   >
-    SVUOTA
+    Svuota
   </button>
   <button
-    mat-dialog-close
-    mat-stroked-button
+    mat-flat-button
     color="primary"
+    [mat-dialog-close]="true"
     (click)="submit(prodList)"
   >
-    ACQUISTA
+    Acquista
   </button>
-</div>
+</mat-dialog-actions>

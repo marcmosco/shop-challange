@@ -1,9 +1,8 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CartService } from '../../core/service/cart.service';
 import { ItemsListService } from '../../core/service/items-list.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ShopItem } from '../../shared/model/shopItem';
-import { Observable, ReplaySubject } from 'rxjs';
 
 @Component({
   selector: 'app-cart',
@@ -19,16 +18,13 @@ export class CartComponent implements OnInit {
   constructor(
     private itemService: ItemsListService,
     private _snackBar: MatSnackBar,
-    private cartService: CartService
+    public cartService: CartService
   ) {}
 
   ngOnInit(): void {
     this.cartService.getProducts().subscribe((res) => {
       this.prodList = res;
     });
-  }
-  badgevalue() {
-    this.newItemEvent.emit(this.prodList.length);
   }
 
   submit(prodList) {

@@ -17,6 +17,8 @@ import { TokenService } from '../../core/service/token.service';
   styleUrls: ['./login-form.component.scss'],
 })
 export class LoginFormComponent implements OnInit {
+  @Input() status: boolean;
+
   handleError: HttpErrorResponse;
   loginForm: FormGroup;
 
@@ -26,10 +28,7 @@ export class LoginFormComponent implements OnInit {
     Validators.minLength(6),
   ]);
   hide: boolean = true;
-  errorMsg: string;
   user: [];
-  @Input() status: boolean;
-  // @Output() public setActiveItem: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -53,19 +52,16 @@ export class LoginFormComponent implements OnInit {
         this.router.navigateByUrl('/home');
       },
       (err) => {
-
-
-          const message1: string = err.error.message;
-          this.openSnackBar('' + message1, 'close',);
-
+        const message1: string = err.error.message;
+        this.openSnackBar('' + message1, 'close');
       }
     );
   }
+
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action,  {horizontalPosition: 'center',
-      verticalPosition: 'top'});
+    this._snackBar.open(message, action, {
+      horizontalPosition: 'center',
+      verticalPosition: 'top',
+    });
   }
-  /* emitItem() {
-    this.setActiveItem.emit(this.tokenService.checkLoggedStatus());
-  }*/
 }

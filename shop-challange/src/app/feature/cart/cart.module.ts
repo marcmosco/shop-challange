@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatButtonModule } from '@angular/material/button';
+import { SharedModule } from '../../shared/shared.module';
 
 const routes: Routes = [{ path: '', component: CartComponent }];
 
@@ -16,6 +17,7 @@ const routes: Routes = [{ path: '', component: CartComponent }];
     MatDialogModule,
     MatTableModule,
     MatButtonModule,
+    SharedModule,
   ],
 })
 export class CartModule {}

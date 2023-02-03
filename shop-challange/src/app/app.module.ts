@@ -21,8 +21,9 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { CommonModule } from '@angular/common';
 import { CartComponent } from './feature/cart/cart.component';
 import { CartModule } from './feature/cart/cart.module';
-import {MatListModule} from "@angular/material/list";
-import {MatPaginatorModule} from "@angular/material/paginator";
+import { MatListModule } from '@angular/material/list';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [AppComponent, LoginFormComponent],
@@ -52,6 +53,11 @@ import {MatPaginatorModule} from "@angular/material/paginator";
     MatListModule,
   ],
   providers: [
+    {
+      provide: MAT_DIALOG_DEFAULT_OPTIONS,
+      useValue: { panelClass: 'mat-dialog-override' },
+    },
+
     {
       provide: HTTP_INTERCEPTORS,
       useClass: OneInterceptor,

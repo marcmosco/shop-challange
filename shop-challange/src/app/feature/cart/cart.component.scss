@@ -23,10 +23,19 @@
   text-align: center;
   font-weight: bold;
 }
+
 img{
   height: 130px;
 }
+
 .bottoni{
   display: flex;
   justify-content: space-evenly;
+}
+.mat-card{
+  margin-bottom: 10px;
+}
+
+.mat-dialog-actions {
+  justify-content: flex-end;
 }
