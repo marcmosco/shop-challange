@@ -10,6 +10,6 @@ export class ItemCategoryService {
   constructor(private http: HttpClient) {}
 
   getAll(): Observable<Category[]> {
-    return this.http.get<Category[]>('http://localhost:3000/categories');
+    return this.http.get<Category[]>('http://localhost:3002/categories');
   }
 }

@@ -9,7 +9,7 @@ import { User } from '../../shared/model/user';
   providedIn: 'root',
 })
 export class AuthService {
-  private url = 'http://localhost:3001/users/authenticate';
+  private url = 'http://localhost:3002/users/authenticate';
 
   constructor(private http: HttpClient, private tokenService: TokenService) {}
 

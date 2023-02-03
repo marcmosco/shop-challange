@@ -11,17 +11,17 @@ export class ItemsListService {
 
   getProducts(page: number): Observable<ShopItem[]> {
     return this.http.get<ShopItem[]>(
-      'http://localhost:3000/products?_page=' + page
+      'http://localhost:3002/products?_page=' + page
     );
   }
 
   submitItem(item: ShopItem[]): Observable<ShopItem> {
-    return this.http.post<ShopItem>('http://localhost:3001/itemCart', item);
+    return this.http.post<ShopItem>('http://localhost:3002/itemCart', item);
   }
 
   getProductsFromCategory(category: string): Observable<ShopItem[]> {
     return this.http.get<ShopItem[]>(
-      'http://localhost:3000/products?category=' + category
+      'http://localhost:3002/products?category=' + category
     );
   }
 }
