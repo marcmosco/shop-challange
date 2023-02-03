@@ -1,8 +1,8 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { CartService } from '../../core/service/cart.service';
-import { ItemsListService } from '../../core/service/items-list.service';
+import { CartService } from '../../../core/service/cart.service';
+import { ItemsListService } from '../../../core/service/items-list.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { ShopItem } from '../../shared/model/shopItem';
+import { ShopItem } from '../../../shared/model/shopItem';
 
 @Component({
   selector: 'app-cart',

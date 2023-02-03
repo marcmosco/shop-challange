@@ -7,22 +7,22 @@ import { User } from '../../shared/model/user';
 })
 export class TokenService {
   private logged: BehaviorSubject<User> = new BehaviorSubject<User>({ id: 0 });
-  data = this.logged.asObservable();
+
+  constructor() {}
 
   getInfoObs(): Observable<User> {
-    return this.data;
+    return this.logged.asObservable();
   }
 
-  setInfoObs(user: any) {
+  setInfoObs(user: User) {
     this.logged.next(user);
   }
 
   takeValue(): User {
     return this.logged.value;
   }
-  checkLoggedStatus() {
+
+  checkLoggedStatus(): boolean {
     return !!this.logged.value.token;
   }
-
-  constructor() {}
 }

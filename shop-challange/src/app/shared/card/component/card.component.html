@@ -1,18 +1,19 @@
-<mat-card class="example-card">
+<mat-card>
   <mat-card-header>
     <mat-card-title>{{ item.title }}</mat-card-title>
   </mat-card-header>
-  <img mat-card-image [src]="item.thumbnail" width="90" height="90" />
+  <img mat-card-image [src]="item.thumbnail" />
   <mat-card-content>
-    <div>Prezzo: {{ item.price }}</div>
-    <div>Prezzo Discount:</div>
+    <div>
+      <span><strong>Prezzo:</strong> {{ item.price | currency }}</span>
+    </div>
   </mat-card-content>
   <button
     mat-stroked-button
     color="warn"
     type="button"
-    (click)="addtocart(item)"
+    (click)="addToCart(item)"
   >
-    ADD TO CART
+    Aggiungi al carrello
   </button>
 </mat-card>

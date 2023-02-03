@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { BehaviorSubject } from 'rxjs';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { ShopItem } from '../../shared/model/shopItem';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CartService {
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {}
-  public itemList: any = [];
-  public totalList = new BehaviorSubject<any>([]);
+  public itemList: ShopItem[] = [];
+
+  public totalList = new BehaviorSubject<ShopItem[]>([]);
+
   public totalPrice = new BehaviorSubject<number>(0);
 
-  add(product: any) {
+  constructor(private _snackBar: MatSnackBar) {}
+
+  add(product: ShopItem) {
     let numero = this.itemList.filter((x) => x.id === product.id);
     if (numero.length === 0) {
       this.itemList.push(product);
@@ -32,7 +35,7 @@ export class CartService {
     return this.totalPrice.asObservable();
   }
 
-  calculateSum() {
+  private calculateSum() {
     let sum = 0;
     for (const item of this.itemList) {
       sum = sum + item.price;

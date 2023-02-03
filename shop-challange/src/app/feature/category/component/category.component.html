@@ -5,7 +5,7 @@
 <h1 class="title">{{ title }}</h1>
 
 <div class="container">
-  <div class="cards" *ngFor="let item of itemList">
+  <div *ngFor="let item of itemList">
     <app-card [item]="item"> </app-card>
   </div>
 </div>

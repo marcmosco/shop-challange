@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription, switchMap } from 'rxjs';
 import { ItemsListService } from '../../../core/service/items-list.service';
-import { Location } from '@angular/common';
+import { ShopItem } from '../../../shared/model/shopItem';
 
 @Component({
   selector: 'app-category',
@@ -11,7 +11,7 @@ import { Location } from '@angular/common';
 })
 export class CategoryComponent implements OnInit, OnDestroy {
   getSubscription: Subscription;
-  itemList: any[];
+  itemList: ShopItem[];
   isLoadingData = false;
   title: string;
 
@@ -36,12 +36,12 @@ export class CategoryComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy(): void {
-    this.router.onSameUrlNavigation = 'ignore';
-  }
-
   ngOnInit(): void {
     this.router.onSameUrlNavigation = 'reload';
     this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
+
+  ngOnDestroy(): void {
+    this.router.onSameUrlNavigation = 'ignore';
   }
 }

@@ -2,9 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { TokenService } from '../../service/token.service';
 import { MatSidenav } from '@angular/material/sidenav';
-import { CartComponent } from '../../../feature/cart/cart.component';
+import { CartComponent } from '../../../feature/cart/component/cart.component';
 import { MatDialog } from '@angular/material/dialog';
 import { CartService } from '../../service/cart.service';
+import { User } from '../../../shared/model/user';
 
 @Component({
   selector: 'app-header',
@@ -14,7 +15,7 @@ import { CartService } from '../../service/cart.service';
 export class HeaderComponent implements OnInit {
   @Input() inputSideNav: MatSidenav;
   name: string;
-  storedUser: any;
+  storedUser: User;
   decodedToken: any;
 
   constructor(

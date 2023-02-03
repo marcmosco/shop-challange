@@ -11,12 +11,7 @@ const routes: Routes = [
       import('./feature/home/home.module').then((m) => m.HomeModule),
     canActivate: [AuthGuardService],
   },
-  {
-    path: 'ricerca',
-    loadChildren: () =>
-      import('./feature/ricerca/ricerca.module').then((m) => m.RicercaModule),
-    canActivate: [AuthGuardService],
-  },
+
   {
     path: 'login',
     loadChildren: () =>

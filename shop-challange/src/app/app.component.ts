@@ -3,8 +3,8 @@ import { TokenService } from './core/service/token.service';
 import { ItemCategoryService } from './core/service/item-category.service';
 import { Observable, Subscription } from 'rxjs';
 import { User } from './shared/model/user';
-import { LoginFormComponent } from './feature/login-form/login-form.component';
-import {Category} from "./shared/model/category";
+import { LoginFormComponent } from './feature/login-form/component/login-form.component';
+import { Category } from './shared/model/category';
 
 @Component({
   selector: 'app-root',
@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
   categoryList: Category[];
   getItemSub: Subscription;
   isLoggedIn$: Observable<User>;
-  listSub : Subscription;
+  listSub: Subscription;
   constructor(
     private tokenService: TokenService,
     private itemCategory: ItemCategoryService
@@ -27,7 +27,7 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.status);
     this.check();
-    this.itemCat()
+    this.itemCat();
     // this.status = this.tokenService.checkLoggedStatus();
   }
 
